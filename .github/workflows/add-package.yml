@@ -1,0 +1,57 @@
+name: Propose package from issue
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: add-package-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  propose:
+    if: contains(github.event.issue.labels.*.name, 'add-package') && github.event.issue.state == 'open'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE: ${{ github.event.issue.number }}
+      BRANCH: add-package/issue-${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: add
+        run: node scripts/add-package.mjs
+
+      - name: Report validation error on the issue
+        if: steps.add.outputs.error != ''
+        env:
+          ERROR: ${{ steps.add.outputs.error }}
+        run: |
+          printf 'Could not add this package: %s\n\nEdit the issue to fix it and the check runs again.\n' "$ERROR" > comment.md
+          gh issue comment "$ISSUE" --body-file comment.md
+
+      - name: Open or update pull request
+        if: steps.add.outputs.error == ''
+        env:
+          NAME: ${{ steps.add.outputs.name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$BRANCH"
+          git add data/packages.json
+          git commit -m "Add package: $NAME" -m "Closes #$ISSUE"
+          git push --force origin "$BRANCH"
+
+          if gh pr view "$BRANCH" --json state --jq .state 2>/dev/null | grep -q OPEN; then
+            gh issue comment "$ISSUE" --body "Pull request updated from the edited issue."
+          else
+            printf 'Adds **%s** to the grid, as requested in #%s.\n\nCloses #%s\n\nStars, forks, license and last-updated were read from the GitHub API. Review `data/packages.json` before merging.\n' \
+              "$NAME" "$ISSUE" "$ISSUE" > body.md
+            url=$(gh pr create --head "$BRANCH" --base main --title "Add package: $NAME" --body-file body.md)
+            gh issue comment "$ISSUE" --body "Opened $url for review."
+          fi

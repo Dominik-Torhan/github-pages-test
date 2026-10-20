@@ -35,6 +35,21 @@
     </div>
 
     <p class="muted small">Figures are approximate sample data for this proof of concept.</p>
+
+    <details class="suggest">
+      <summary>Suggest a package</summary>
+      <form id="suggest-form">
+        <p class="muted small">
+          This opens a pre-filled GitHub issue (you need a GitHub account). Tick the
+          features there and submit; a pull request is created for the maintainer to review.
+        </p>
+        <label>Package name <input name="name" required pattern="[A-Za-z0-9][A-Za-z0-9._\-]{0,99}" placeholder="django-debug-toolbar"></label>
+        <label>Repository URL <input name="repo" type="url" required pattern="https://github\.com/[^\/]+/[^\/]+\/?" placeholder="https://github.com/owner/repo"></label>
+        <label>Description <textarea name="description" rows="2" maxlength="300" placeholder="Optional - defaults to the repository description"></textarea></label>
+        <label>Latest version <input name="version" placeholder="1.0"></label>
+        <button type="submit">Continue on GitHub →</button>
+      </form>
+    </details>
   </main>
 
   <script src="app.js"></script>

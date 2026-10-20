@@ -1,0 +1,47 @@
+name: Add a package
+description: Suggest a package for the grid. A pull request is opened automatically for review.
+title: "Add package: "
+labels: ["add-package"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill this in and submit. A bot validates it and opens a pull request that adds the package to the grid.
+        Stars, forks, license and last-updated are read from GitHub automatically.
+  - type: input
+    id: name
+    attributes:
+      label: Package name
+      placeholder: django-debug-toolbar
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository URL
+      description: Must be a public GitHub repository.
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: One or two sentences. Leave empty to use the repository description.
+  - type: input
+    id: version
+    attributes:
+      label: Latest version
+      placeholder: "1.0"
+  # Option labels must match "features[].label" in data/packages.json.
+  - type: checkboxes
+    id: features
+    attributes:
+      label: Features
+      options:
+        - label: SQL query inspection
+        - label: Request profiling
+        - label: Extra management commands
+        - label: In-browser UI
+        - label: Browser auto-reload
+        - label: Safe to leave on in production

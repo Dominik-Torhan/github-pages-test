@@ -87,7 +87,20 @@ async function init() {
 
   $("#search").addEventListener("input", (e) => { state.query = e.target.value; render(); });
   $("#sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+  $("#suggest-form").addEventListener("submit", suggest);
   render();
+}
+
+// Issue forms accept ?<field id>=<value> to pre-fill fields, so the page
+// can hand off to GitHub without holding any credentials.
+function suggest(e) {
+  e.preventDefault();
+  const form = new FormData(e.target);
+  const params = new URLSearchParams({ template: "add-package.yml", title: `Add package: ${form.get("name")}` });
+  for (const [key, value] of form) {
+    if (String(value).trim()) params.set(key, String(value).trim());
+  }
+  window.open(`https://github.com/${state.data.grid.source}/issues/new?${params}`, "_blank", "noopener");
 }
 
 init().catch((err) => {
