@@ -4,12 +4,30 @@
     "description": "Tools that make developing Django projects easier: debugging, profiling, management commands and live reload."
   },
   "features": [
-    { "id": "sql_inspection", "label": "SQL query inspection" },
-    { "id": "profiling", "label": "Request profiling" },
-    { "id": "mgmt_commands", "label": "Extra management commands" },
-    { "id": "browser_ui", "label": "In-browser UI" },
-    { "id": "auto_reload", "label": "Browser auto-reload" },
-    { "id": "prod_safe", "label": "Safe to leave on in production" }
+    {
+      "id": "sql_inspection",
+      "label": "SQL query inspection"
+    },
+    {
+      "id": "profiling",
+      "label": "Request profiling"
+    },
+    {
+      "id": "mgmt_commands",
+      "label": "Extra management commands"
+    },
+    {
+      "id": "browser_ui",
+      "label": "In-browser UI"
+    },
+    {
+      "id": "auto_reload",
+      "label": "Browser auto-reload"
+    },
+    {
+      "id": "prod_safe",
+      "label": "Safe to leave on in production"
+    }
   ],
   "packages": [
     {
@@ -21,7 +39,14 @@
       "version": "5.0",
       "license": "BSD-3-Clause",
       "updated": "2026-09",
-      "features": { "sql_inspection": true, "profiling": true, "mgmt_commands": false, "browser_ui": true, "auto_reload": false, "prod_safe": false }
+      "features": {
+        "sql_inspection": true,
+        "profiling": true,
+        "mgmt_commands": false,
+        "browser_ui": true,
+        "auto_reload": false,
+        "prod_safe": false
+      }
     },
     {
       "name": "django-extensions",
@@ -32,7 +57,14 @@
       "version": "4.1",
       "license": "MIT",
       "updated": "2026-08",
-      "features": { "sql_inspection": true, "profiling": true, "mgmt_commands": true, "browser_ui": false, "auto_reload": false, "prod_safe": true }
+      "features": {
+        "sql_inspection": true,
+        "profiling": true,
+        "mgmt_commands": true,
+        "browser_ui": false,
+        "auto_reload": false,
+        "prod_safe": true
+      }
     },
     {
       "name": "django-silk",
@@ -43,7 +75,14 @@
       "version": "5.3",
       "license": "MIT",
       "updated": "2026-07",
-      "features": { "sql_inspection": true, "profiling": true, "mgmt_commands": true, "browser_ui": true, "auto_reload": false, "prod_safe": false }
+      "features": {
+        "sql_inspection": true,
+        "profiling": true,
+        "mgmt_commands": true,
+        "browser_ui": true,
+        "auto_reload": false,
+        "prod_safe": false
+      }
     },
     {
       "name": "django-browser-reload",
@@ -54,7 +93,14 @@
       "version": "1.18",
       "license": "MIT",
       "updated": "2026-09",
-      "features": { "sql_inspection": false, "profiling": false, "mgmt_commands": false, "browser_ui": false, "auto_reload": true, "prod_safe": false }
+      "features": {
+        "sql_inspection": false,
+        "profiling": false,
+        "mgmt_commands": false,
+        "browser_ui": false,
+        "auto_reload": true,
+        "prod_safe": false
+      }
     },
     {
       "name": "django-querycount",
@@ -65,7 +111,14 @@
       "version": "0.8",
       "license": "MIT",
       "updated": "2024-03",
-      "features": { "sql_inspection": true, "profiling": false, "mgmt_commands": false, "browser_ui": false, "auto_reload": false, "prod_safe": false }
+      "features": {
+        "sql_inspection": true,
+        "profiling": false,
+        "mgmt_commands": false,
+        "browser_ui": false,
+        "auto_reload": false,
+        "prod_safe": false
+      }
     },
     {
       "name": "django-upgrade",
@@ -76,7 +129,32 @@
       "version": "1.25",
       "license": "MIT",
       "updated": "2026-09",
-      "features": { "sql_inspection": false, "profiling": false, "mgmt_commands": false, "browser_ui": false, "auto_reload": false, "prod_safe": true }
+      "features": {
+        "sql_inspection": false,
+        "profiling": false,
+        "mgmt_commands": false,
+        "browser_ui": false,
+        "auto_reload": false,
+        "prod_safe": true
+      }
+    },
+    {
+      "name": "helm",
+      "repo": "https://github.com/helm/helm",
+      "description": "The Kubernetes Package Manager",
+      "stars": 30348,
+      "forks": 7855,
+      "version": "1",
+      "license": "Apache-2.0",
+      "updated": "2026-10",
+      "features": {
+        "sql_inspection": false,
+        "profiling": false,
+        "mgmt_commands": false,
+        "browser_ui": false,
+        "auto_reload": false,
+        "prod_safe": false
+      }
     }
   ]
 }
