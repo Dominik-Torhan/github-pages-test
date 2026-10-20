@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Package Grid</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <header class="site-header">
@@ -38,7 +38,10 @@
 
     <details class="suggest">
       <summary>Suggest a package</summary>
-      <form id="suggest-form">
+      <!-- Plain GET form: issue forms pre-fill fields from ?<field id>=<value>,
+           so this works without JavaScript or any credentials. -->
+      <form action="https://github.com/Dominik-Torhan/github-pages-test/issues/new" method="get" target="_blank">
+        <input type="hidden" name="template" value="add-package.yml">
         <p class="muted small">
           This opens a pre-filled GitHub issue (you need a GitHub account). Tick the
           features there and submit; a pull request is created for the maintainer to review.
@@ -52,6 +55,6 @@
     </details>
   </main>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>

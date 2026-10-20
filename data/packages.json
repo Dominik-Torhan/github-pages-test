@@ -1,8 +1,7 @@
 {
   "grid": {
     "title": "Developer Tools",
-    "description": "Tools that make developing Django projects easier: debugging, profiling, management commands and live reload.",
-    "source": "Dominik-Torhan/github-pages-test"
+    "description": "Tools that make developing Django projects easier: debugging, profiling, management commands and live reload."
   },
   "features": [
     { "id": "sql_inspection", "label": "SQL query inspection" },
