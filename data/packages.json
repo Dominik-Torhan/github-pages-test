@@ -1,0 +1,82 @@
+{
+  "grid": {
+    "title": "Developer Tools",
+    "description": "Tools that make developing Django projects easier: debugging, profiling, management commands and live reload."
+  },
+  "features": [
+    { "id": "sql_inspection", "label": "SQL query inspection" },
+    { "id": "profiling", "label": "Request profiling" },
+    { "id": "mgmt_commands", "label": "Extra management commands" },
+    { "id": "browser_ui", "label": "In-browser UI" },
+    { "id": "auto_reload", "label": "Browser auto-reload" },
+    { "id": "prod_safe", "label": "Safe to leave on in production" }
+  ],
+  "packages": [
+    {
+      "name": "django-debug-toolbar",
+      "repo": "https://github.com/django-commons/django-debug-toolbar",
+      "description": "A configurable set of panels that display debug information about the current request/response.",
+      "stars": 8100,
+      "forks": 1050,
+      "version": "5.0",
+      "license": "BSD-3-Clause",
+      "updated": "2026-09",
+      "features": { "sql_inspection": true, "profiling": true, "mgmt_commands": false, "browser_ui": true, "auto_reload": false, "prod_safe": false }
+    },
+    {
+      "name": "django-extensions",
+      "repo": "https://github.com/django-extensions/django-extensions",
+      "description": "A collection of custom extensions: shell_plus, runserver_plus, graph_models and many more.",
+      "stars": 6600,
+      "forks": 1100,
+      "version": "4.1",
+      "license": "MIT",
+      "updated": "2026-08",
+      "features": { "sql_inspection": true, "profiling": true, "mgmt_commands": true, "browser_ui": false, "auto_reload": false, "prod_safe": true }
+    },
+    {
+      "name": "django-silk",
+      "repo": "https://github.com/jazzband/django-silk",
+      "description": "Live profiling and inspection of HTTP requests and database queries, with a UI for browsing them.",
+      "stars": 4600,
+      "forks": 340,
+      "version": "5.3",
+      "license": "MIT",
+      "updated": "2026-07",
+      "features": { "sql_inspection": true, "profiling": true, "mgmt_commands": true, "browser_ui": true, "auto_reload": false, "prod_safe": false }
+    },
+    {
+      "name": "django-browser-reload",
+      "repo": "https://github.com/adamchainz/django-browser-reload",
+      "description": "Automatically reload your browser in development when templates, static files or code change.",
+      "stars": 560,
+      "forks": 30,
+      "version": "1.18",
+      "license": "MIT",
+      "updated": "2026-09",
+      "features": { "sql_inspection": false, "profiling": false, "mgmt_commands": false, "browser_ui": false, "auto_reload": true, "prod_safe": false }
+    },
+    {
+      "name": "django-querycount",
+      "repo": "https://github.com/bradmontgomery/django-querycount",
+      "description": "Middleware that prints the number of database queries made during each request to the console.",
+      "stars": 360,
+      "forks": 40,
+      "version": "0.8",
+      "license": "MIT",
+      "updated": "2024-03",
+      "features": { "sql_inspection": true, "profiling": false, "mgmt_commands": false, "browser_ui": false, "auto_reload": false, "prod_safe": false }
+    },
+    {
+      "name": "django-upgrade",
+      "repo": "https://github.com/adamchainz/django-upgrade",
+      "description": "Automatically upgrade your Django project code to newer Django versions.",
+      "stars": 1100,
+      "forks": 70,
+      "version": "1.25",
+      "license": "MIT",
+      "updated": "2026-09",
+      "features": { "sql_inspection": false, "profiling": false, "mgmt_commands": false, "browser_ui": false, "auto_reload": false, "prod_safe": true }
+    }
+  ]
+}

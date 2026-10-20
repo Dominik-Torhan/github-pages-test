@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Package Grid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">Package Grid</a>
+    <span class="tag">static PoC on GitHub Pages</span>
+  </header>
+
+  <main>
+    <h1 id="grid-title">Loading…</h1>
+    <p id="grid-description" class="lead"></p>
+
+    <div class="controls">
+      <input id="search" type="search" placeholder="Filter packages…" aria-label="Filter packages">
+      <label>
+        Sort by
+        <select id="sort">
+          <option value="stars">Stars</option>
+          <option value="forks">Forks</option>
+          <option value="name">Name</option>
+          <option value="updated">Last updated</option>
+        </select>
+      </label>
+      <span id="count" class="muted"></span>
+    </div>
+
+    <div class="grid-wrap">
+      <table id="grid" class="grid"></table>
+    </div>
+
+    <p class="muted small">Figures are approximate sample data for this proof of concept.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
